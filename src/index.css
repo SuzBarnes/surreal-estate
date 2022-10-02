@@ -9,10 +9,11 @@ h3 {
 body {
   margin: 0;
   padding: 0;
-  background-color: lightgrey;
+  background-color: #bde6f1;
   font-family: "Cabin Sketch", cursive;
   font-family: "Elsie Swash Caps", cursive;
   font-family: "Reenie Beanie", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 25px;
 }
