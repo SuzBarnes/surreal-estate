@@ -13,6 +13,7 @@ const AddProperty = () => {
             bathrooms: "Number of Bathrooms",
             price: "",
             email: "",
+            image: "",
         },
         alert: {
             message: "",
@@ -22,6 +23,7 @@ const AddProperty = () => {
 
     const [fields, setFields] = useState(initialState.fields);
     const [alert, setAlert] = useState(initialState.alert)
+    const [image, setImage] = useState(initialState.image)
 
     const handleAddProperty = (event) => {
         console.log(initialState, "initialState")
@@ -72,10 +74,10 @@ const AddProperty = () => {
                     placeholder="Select city..."
                 >
                     <option value="select-city">Select Location...</option>
-                    <option value="manchester">Manchester</option>
-                    <option value="sheffield">Sheffield</option>
-                    <option value="liverpool">Liverpool</option>
-                    <option value="leeds">Leeds</option>
+                    <option value="Manchester">Manchester</option>
+                    <option value="Sheffield">Sheffield</option>
+                    <option value="Liverpool">Liverpool</option>
+                    <option value="Leeds">Leeds</option>
                 </select>
                 <select
                     id="type"
@@ -86,13 +88,13 @@ const AddProperty = () => {
                     placeholder="Select property type"
                 >
                     <option value="select-property-type">Select Property Type...</option>
-                    <option value="flat">Flat</option>
-                    <option value="detached">Detached</option>
-                    <option value="semi-detached">Semi-Detached</option>
-                    <option value="terraced">Terraced</option>
-                    <option value="end-of-terrace">End of Terrace</option>
-                    <option value="cottage">Cottage</option>
-                    <option value="bungalow">Bungalow</option>
+                    <option value="Flat">Flat</option>
+                    <option value="Detached">Detached</option>
+                    <option value="Semi-Detached">Semi-Detached</option>
+                    <option value="Terraced">Terraced</option>
+                    <option value="End-of-Terrace">End of Terrace</option>
+                    <option value="Cottage">Cottage</option>
+                    <option value="Bungalow">Bungalow</option>
                 </select>
                 <select
                     id="bedrooms"
@@ -140,6 +142,8 @@ const AddProperty = () => {
                     label="email"
                     placeholder="Contact email address"
                 />
+                <input id="image" name="image" value={fields.image} type="file" label="image" onChange={handleFieldChange}
+                    placeholder="Upload Images" />
                 <button type="submit">Add</button>
             </form>
         </div>

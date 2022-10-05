@@ -1,0 +1,32 @@
+.sidebar {
+    height: max-content;
+    width: min-content;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-bottom: 100%;
+    background-color: white;
+    border-right: 3px solid;
+    float: left;
+}
+
+.sidebar-links-item {
+    padding: 8px 32px 8px 8px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    color: #fc997c;
+}
+
+.sidebar-links-item:hover {
+    color: #fc997c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sidebar-links-item:visited {
+    color: #fc997c;
+    text-decoration: none;
+}

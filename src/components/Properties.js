@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "../styles/properties.css";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
-import axios from "axios";
+import SideBar from "./SideBar";
+import "../styles/properties.css";
 
 const Properties = () => {
 
@@ -15,11 +17,12 @@ const Properties = () => {
   const [properties, setProperties] = useState(initialState.properties);
   const [alert, setAlert] = useState(initialState.alert)
 
+  const { search } = useLocation();
+
   useEffect(() => {
     axios.get(`http://localhost:4000/api/v1/PropertyListing`)
       .then(({ data }) => {
         setProperties(data)
-        // setAlert({ message: `${properties}` })
       })
       .catch((err) => {
         console.error(err)
@@ -29,9 +32,17 @@ const Properties = () => {
       })
   }, [])
 
+  useEffect(() => {
+    axios.get(`http://localhost:4000/api/v1/PropertyListing/${search}`)
+      .then(({ data }) =>
+        setProperties(data))
+      .catch(err =>
+        console.error(err))
+  }, [search]);
+
   return (
     <div className="properties">
-      <h2>Properties Page</h2>
+      <SideBar />
       <Alert message={alert.message} />
       {properties.map(property => (
         <div key={property._id} className="item">

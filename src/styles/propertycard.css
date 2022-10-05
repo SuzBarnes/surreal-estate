@@ -6,11 +6,18 @@
     flex-direction: column;
     margin: 1rem;
     line-height: 1.2rem;
+    text-indent: 10px;
 }
 
 .property-price::before {
-    content: "£";
+    content: "Offers from: £";
     position: relative;
+}
+
+.property-price {
+    font-size: larger;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .property-button {
@@ -25,7 +32,12 @@
 }
 
 .property-button:hover {
-    color: blue;
+    color: #fc997c;
+}
+
+.font-awesome {
+    font-size: 20px;
+    padding-right: 10px;
 }
 
 @media screen and(min-width:600px) {
