@@ -1,0 +1,9 @@
+.properties {
+    padding: 0.5rem;
+}
+
+.properties>.item {
+    display: inline-block;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}

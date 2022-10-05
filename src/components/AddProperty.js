@@ -1,31 +1,47 @@
 import React, { useState } from "react";
 import "../styles/addproperty.css";
 import axios from "axios";
+import Alert from "./Alert";
 
 const AddProperty = () => {
     const initialState = {
-        title: "",
-        city: "Select Location...",
-        type: "Property Type",
-        bedrooms: "Number of Bedrooms",
-        bathrooms: "Number of Bathrooms",
-        price: "",
-        email: "",
+        fields: {
+            title: "",
+            city: "Select Location...",
+            type: "Property Type",
+            bedrooms: "Number of Bedrooms",
+            bathrooms: "Number of Bathrooms",
+            price: "",
+            email: "",
+        },
+        alert: {
+            message: "",
+            isSuccess: false,
+        },
     };
 
-    const [fields, setFields] = useState(initialState);
+    const [fields, setFields] = useState(initialState.fields);
+    const [alert, setAlert] = useState(initialState.alert)
 
     const handleAddProperty = (event) => {
+        console.log(initialState, "initialState")
         event.preventDefault();
-        console.log(fields)
-        axios.post(`http://localhost:3000/api/v1/PropertyListing`, fields)
-            .then(res => {
-                console.log(res);
-                console.log(res.data)
+        setAlert({ message: "", isSuccess: false })
+
+        axios
+            .post(`http://localhost:4000/api/v1/PropertyListing`, fields)
+            .then(() => {
+                setAlert({
+                    message: "Property has been added successfully!",
+                    isSuccess: true,
+                })
             })
-            .catch(err => {
-                console.log(err)
-            });
+            .catch(() => {
+                setAlert({
+                    message: "Server error, please try again later.",
+                    isSuccess: false,
+                })
+            })
     };
     const handleFieldChange = (event) =>
         setFields({ ...fields, [event.target.name]: event.target.value });
@@ -33,8 +49,12 @@ const AddProperty = () => {
     return (
         <div className="add-property">
             <h3>Add New Listing:</h3>
-            <h4>Enter the details of the property you would like to add into the form below.</h4>
+            <h4>
+                Enter the details of the property you would like to add into the form
+                below.
+            </h4>
             <form onSubmit={handleAddProperty}>
+                <Alert message={alert.message} success={alert.isSuccess} />
                 <input
                     id="title"
                     name="title"

@@ -1,0 +1,35 @@
+.property-card {
+    box-shadow: 0 0 10px 5px grey;
+    border-radius: 10px;
+    min-width: 28rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    line-height: 1.2rem;
+}
+
+.property-price::before {
+    content: "£";
+    position: relative;
+}
+
+.property-button {
+    border: none;
+    border-top: 1px solid lightgrey;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 99%;
+    padding: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.property-button:hover {
+    color: blue;
+}
+
+@media screen and(min-width:600px) {
+    .property-card {
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
+    }
+}

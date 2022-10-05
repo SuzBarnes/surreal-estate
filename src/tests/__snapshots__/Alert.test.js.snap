@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert does not render Alert component when message is not truthy 1`] = `<DocumentFragment />`;
+
+exports[`Alert logs 'Error!' when there is an error 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert-error"
+  >
+    Error!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Alert logs 'Success!!!' when the task is successful 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert-success"
+  >
+    Success!!!
+  </div>
+</DocumentFragment>
+`;
